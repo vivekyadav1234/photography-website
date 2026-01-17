@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pavithra Stories | Wedding & Portrait Photography</title>
@@ -18,117 +18,81 @@
       --bg-color: #fff;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.7;
-    }
-    a { text-decoration: none; color: inherit; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Montserrat',sans-serif; background:var(--bg-color); color:var(--text-color); line-height:1.7; }
+    a { text-decoration:none; color:inherit; }
 
     nav {
-      position: fixed; top: 0; width: 100%;
-      background: rgba(255,255,255,0.95);
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 3rem; z-index: 100;
-      border-bottom: 1px solid #eee;
-      font-weight: 500;
+      position:fixed; top:0; width:100%; background:rgba(255,255,255,0.95);
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1.2rem 3rem; z-index:100; border-bottom:1px solid #eee; font-weight:500;
     }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem; font-weight: 700;
-      color: var(--primary-color);
-    }
-    nav .menu a {
-      margin-left: 2rem; font-size: 0.85rem; letter-spacing: 0.1em;
-      color: var(--text-color);
-      transition: color 0.3s;
-    }
-    nav .menu a:hover { color: var(--primary-color); }
+    .logo { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; color:var(--primary-color);}
+    nav .menu a { margin-left:2rem; font-size:0.85rem; letter-spacing:0.1em; color:var(--text-color); transition:color 0.3s;}
+    nav .menu a:hover { color:var(--primary-color); }
 
-    .hero {
-      height: 100vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 2rem; margin-top: 6%;
-      background-size: cover; background-position: center; position: relative;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: ""; position: absolute; inset: 0;
-      background: rgba(0,0,0,0.5);
-    }
-    .hero-content { position: relative; z-index: 2; animation: fadeInUp 1.2s ease forwards; opacity: 0; }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4.2rem);
-      color: #fff; margin-bottom: 1rem;
-    }
-    .hero p { color: #f0f0f0; max-width: 700px; margin: auto; font-size: 1.1rem; }
-    .hero a {
-      display: inline-block; margin-top: 2rem; padding: 0.9rem 3rem;
-      background: var(--primary-color); color: #fff; font-weight: 600;
-      border-radius: 50px; letter-spacing: 0.15em;
-      transition: transform 0.3s;
-    }
-    .hero a:hover { transform: scale(1.05); }
+    .hero { height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; margin-top:6%; background-size:cover; background-position:center; position:relative; overflow:hidden;}
+    .hero::after { content:""; position:absolute; inset:0; background:rgba(0,0,0,0.5); }
+    .hero-content { position:relative; z-index:2; opacity:0; animation:fadeInUp 1.2s ease forwards; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,5vw,4.2rem); color:#fff; margin-bottom:1rem; }
+    .hero p { color:#f0f0f0; max-width:700px; margin:auto; font-size:1.1rem; }
+    .hero a { display:inline-block; margin-top:2rem; padding:0.9rem 3rem; background:var(--primary-color); color:#fff; font-weight:600; border-radius:50px; letter-spacing:0.15em; transition:transform 0.3s;}
+    .hero a:hover { transform:scale(1.05); }
 
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeInUp { 0%{opacity:0; transform:translateY(40px);} 100%{opacity:1; transform:translateY(0);} }
 
-    section { padding: 6rem 3rem; margin: auto; }
-    .title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 1rem; color: var(--primary-color); }
-    .subtitle { text-align: center; max-width: 700px; margin: 0 auto 4rem; color: var(--text-color); font-size: 1.1rem; }
+    section { padding:6rem 3rem; margin:auto; }
+    .title { text-align:center; font-family:'Playfair Display',serif; font-size:2.8rem; margin-bottom:1rem; color:var(--primary-color);}
+    .subtitle { text-align:center; max-width:700px; margin:0 auto 4rem; color:var(--text-color); font-size:1.1rem; }
 
-    /* Category Filter */
-    .categories { text-align: center; margin-bottom: 2rem; }
+    /* Categories */
+    .categories { text-align:center; margin-bottom:2rem; }
     .categories button {
-      background: none; border: 1px solid var(--primary-color); padding: 0.6rem 1.2rem;
-      margin: 0 0.5rem; border-radius: 30px; cursor: pointer;
-      transition: all 0.3s;
-      color: var(--primary-color);
-      font-weight: 500;
+      background:none; border:1px solid var(--primary-color); padding:0.6rem 1.2rem; margin:0 0.5rem;
+      border-radius:30px; cursor:pointer; transition:all 0.3s; color:var(--primary-color); font-weight:500;
     }
-    .categories button.active, .categories button:hover { background: var(--primary-color); color: #fff; }
+    .categories button.active, .categories button:hover { background:var(--primary-color); color:#fff; }
 
-    .gallery {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
-    }
-    .gallery img {
-      width: 100%; height: 420px; object-fit: cover;
-      opacity: 0; transform: scale(0.96); transition: all 0.7s ease; cursor: pointer;
-      border-radius: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-    .gallery img.show { opacity: 1; transform: scale(1); }
+    /* Gallery */
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+    .gallery img { width:100%; height:420px; object-fit:cover; opacity:0; transform:scale(0.96); transition:all 0.7s ease; cursor:pointer; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+    .gallery img.show { opacity:1; transform:scale(1); }
 
-    .about { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center; }
-    .about img { width: 100%; border-radius: 12px; }
-    .about p { color: var(--text-color); font-size: 1.05rem; }
+    /* About / Studio */
+    .about, .studio { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:3rem; align-items:center; }
+    .about img, .studio img { width:100%; border-radius:12px; }
+    .about p, .studio p { color:var(--text-color); font-size:1.05rem; }
 
-    /* Stats / Why Choose Pavithra */
-    .stats { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; text-align: center; margin-top: 2rem; }
-    .stat { font-weight: 700; font-size: 1.6rem; color: var(--primary-color); }
-    .stat-label { font-weight: 400; font-size: 1rem; color: var(--text-color); }
+    /* Why Choose */
+    .why { text-align:center; margin-top:3rem; }
+    .why-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; margin-top:2rem; }
+    .why-card { background:#fff; border-radius:12px; padding:2rem; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:transform 0.3s; }
+    .why-card:hover { transform:translateY(-5px);}
+    .why-card h3 { color:var(--primary-color); margin-bottom:1rem; }
 
     /* Testimonials */
-    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
-    .testimonial { padding: 2rem; border: 1px solid #eee; border-radius: 12px; font-size: 0.95rem; color: var(--text-color); background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    .testimonials { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2rem;}
+    .testimonial { border:1px solid #eee; padding:2rem; font-size:0.95rem; color:#444; border-radius:12px; background:#fff; box-shadow:0 5px 10px rgba(0,0,0,0.05); transition:transform 0.3s;}
+    .testimonial:hover { transform:translateY(-5px); }
 
-    .contact { text-align: center; }
-    .contact p { margin-bottom: 0.5rem; font-size: 1rem; }
-    .contact a { display: inline-block; background: var(--secondary-color); color: #fff; padding: 0.7rem 2rem; border-radius: 50px; margin-top: 1rem; transition: transform 0.3s; }
-    .contact a:hover { transform: scale(1.05); }
+    /* Video */
+    .videos { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; margin-top:3rem;}
+    .videos iframe { width:100%; height:300px; border-radius:12px; }
 
-    footer { text-align: center; padding: 2rem 1rem; font-size: 0.85rem; color: #777; border-top: 1px solid #eee; background: #f9f9f9; margin-top: -1rem; }
+    /* Contact */
+    .contact { text-align:center; margin-top:3rem;}
+    .contact p { margin-bottom:0.5rem; font-size:1rem; }
+    .contact a { display:inline-block; background:var(--secondary-color); color:#fff; padding:0.7rem 2rem; border-radius:50px; margin-top:1rem; transition:transform 0.3s; }
+    .contact a:hover { transform:scale(1.05); }
 
-    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 999; }
-    .lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+    /* Footer */
+    footer { text-align:center; padding:2rem 1rem; font-size:0.85rem; color:#777; border-top:1px solid #eee; background:#f9f9f9; margin-top:-1rem; }
 
-    #map { width: 100%; height: 70vh; margin-top: 4rem; }
+    /* Lightbox */
+    .lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.9); display:none; align-items:center; justify-content:center; z-index:999; }
+    .lightbox img { max-width:90%; max-height:90%; border-radius:8px; }
 
-    @media(max-width:768px){ nav{padding:1rem;} nav .menu{display:none;} }
+    @media(max-width:768px){ nav{padding:1rem;} nav .menu{display:none;} .videos iframe{height:200px;} }
   </style>
 </head>
 <body>
@@ -136,12 +100,17 @@
 <nav>
   <div class="logo">Pavithra Stories</div>
   <div class="menu">
+    <a href="#hero">HOME</a>
     <a href="#work">GALLERY</a>
+    <a href="#studio">STUDIO</a>
     <a href="#about">ABOUT</a>
+    <a href="#why">WHY CHOOSE</a>
+    <a href="#videos">VIDEOS</a>
     <a href="#contact">CONTACT</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-content">
     <h1></h1>
@@ -150,18 +119,10 @@
   </div>
 </section>
 
-<section id="stats">
-  <div class="title">Why Choose Pavithra?</div>
-  <div class="stats">
-    <div><div class="stat">500+</div><div class="stat-label">Weddings Captured</div></div>
-    <div><div class="stat">10+</div><div class="stat-label">Years of Experience</div></div>
-    <div><div class="stat">Worldwide</div><div class="stat-label">Available Globally</div></div>
-  </div>
-</section>
-
+<!-- GALLERY -->
 <section id="work">
   <h2 class="title">Featured Stories</h2>
-  <p class="subtitle">Moments captured with heart & soul.</p>
+  <p class="subtitle">Every photograph tells a story, every moment captured is eternal.</p>
   <div class="categories">
     <button class="active" data-category="all">All</button>
     <button data-category="wedding">Wedding</button>
@@ -171,6 +132,16 @@
   <div class="gallery" id="gallery"></div>
 </section>
 
+<!-- STUDIO -->
+<section id="studio">
+  <h2 class="title">Studio</h2>
+  <div class="studio">
+    <img id="studioImg" />
+    <p id="studioText">At Pavithra Stories, our studio is more than just a place — it’s a space where emotions come alive, creativity flows, and every frame tells a heartfelt story. Behind every shoot, we meticulously design the experience to be elegant, seamless, and uniquely yours.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
 <section id="about">
   <h2 class="title"></h2>
   <div class="about">
@@ -179,11 +150,21 @@
   </div>
 </section>
 
-<section id="testimonials">
-  <div class="title">Client Love</div>
-  <div class="testimonials" id="testimonialContainer"></div>
+<!-- WHY CHOOSE -->
+<section id="why">
+  <h2 class="title">Why Choose Pavithra?</h2>
+  <p class="subtitle">We don’t just capture images; we craft memories, tell stories, and immortalize emotions.</p>
+  <div class="why-cards" id="whyCards"></div>
 </section>
 
+<!-- VIDEOS -->
+<section id="videos">
+  <h2 class="title">Moments in Motion</h2>
+  <p class="subtitle">Watch our cinematic stories brought to life through motion and music.</p>
+  <div class="videos" id="videoGallery"></div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
   <h2 class="title">Contact</h2>
   <div class="contact">
@@ -192,10 +173,6 @@
     <p>💬 WhatsApp: <a href="https://wa.me/911234567890" target="_blank">Chat on WhatsApp</a></p>
   </div>
 </section>
-
-<div id="map">
-<iframe src="https://www.google.com/maps/embed?..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-</div>
 
 <footer>© 2026 Pavithra Stories | Capturing Love, Emotion & Elegance</footer>
 
@@ -206,39 +183,41 @@ async function loadSite(){
   try{
     const site = await fetch('site.json').then(r=>r.json());
     const galleryData = await fetch('gallery.json').then(r=>r.json());
-    const testimonialsData = await fetch('testimonials.json').then(r=>r.json());
+    const whyData = await fetch('why.json').then(r=>r.json());
+    const videoData = await fetch('videos.json').then(r=>r.json());
 
-    // Hero
-    const heroMessages = site.heroMessages || [site.hero];
+    // Hero rotation
+    const heroMsgs = site.hero.messages;
     let heroIndex = 0;
     const h1 = document.querySelector('.hero h1');
     const p = document.querySelector('.hero p');
     const btn = document.querySelector('.hero a');
-    document.querySelector('.hero').style.backgroundImage = `url(${site.hero.image})`;
     btn.innerText = site.hero.button;
     setInterval(()=>{
-      const msg = heroMessages[heroIndex];
-      h1.innerText = msg.title;
-      p.innerText = msg.subtitle;
-      heroIndex = (heroIndex+1)%heroMessages.length;
+      h1.innerText = heroMsgs[heroIndex].title;
+      p.innerText = heroMsgs[heroIndex].subtitle;
+      heroIndex = (heroIndex+1)%heroMsgs.length;
     },4000);
+    document.querySelector('.hero').style.backgroundImage = `url(${site.hero.image})`;
 
     // About
     document.querySelector('#about .title').innerText = site.about.title;
     document.getElementById('aboutImg').src = site.about.image;
     document.getElementById('aboutText').innerText = site.about.text;
 
+    // Studio
+    document.getElementById('studioImg').src = site.studio.image;
+
     // Gallery
     const gallery = document.getElementById('gallery');
     galleryData.forEach(item=>{
       const img=document.createElement('img');
       img.src=item.src;
-      img.dataset.category = item.category;
+      img.dataset.category=item.category;
       gallery.appendChild(img);
       observer.observe(img);
-      img.onclick = ()=>{lb.style.display='flex'; lbImg.src=item.src;}
+      img.onclick=()=>{lb.style.display='flex'; lbImg.src=item.src;}
     });
-
     // Category filter
     document.querySelectorAll('.categories button').forEach(btn=>{
       btn.onclick=()=>{
@@ -251,24 +230,32 @@ async function loadSite(){
       }
     });
 
-    // Testimonials
-    const testimonialContainer = document.getElementById('testimonialContainer');
-    testimonialsData.forEach(t=>{
+    // Why choose
+    const whyCards = document.getElementById('whyCards');
+    whyData.forEach(item=>{
       const div=document.createElement('div');
-      div.classList.add('testimonial');
-      div.innerText = `"${t.text}" - ${t.client}`;
-      testimonialContainer.appendChild(div);
+      div.className='why-card';
+      div.innerHTML=`<h3>${item.title}</h3><p>${item.text}</p>`;
+      whyCards.appendChild(div);
     });
 
-  } catch(e){
+    // Videos
+    const videoGallery = document.getElementById('videoGallery');
+    videoData.forEach(v=>{
+      const iframe=document.createElement('iframe');
+      iframe.src=v.src;
+      videoGallery.appendChild(iframe);
+    });
+
+  }catch(e){
     console.error(e);
     document.body.innerHTML='<h2 style="padding:40px;font-family:sans-serif">Failed to load site data. Check JSON files.</h2>';
   }
 }
 
-const observer = new IntersectionObserver(e=>e.forEach(i=>i.isIntersecting&&i.target.classList.add('show')),{threshold:0.2});
-const lb = document.getElementById('lightbox');
-const lbImg = document.getElementById('lightboxImg');
+const observer=new IntersectionObserver(e=>e.forEach(i=>i.isIntersecting&&i.target.classList.add('show')),{threshold:0.2});
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lightboxImg');
 lb.onclick=()=>lb.style.display='none';
 
 loadSite();
