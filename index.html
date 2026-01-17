@@ -5,95 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pavithra Stories | Wedding & Portrait Photography</title>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
+  <!-- Signature Color Palette -->
   <style>
+    :root {
+      --primary-color: #FF6B6B;
+      --secondary-color: #4ECDC4;
+      --accent-color: #FFE66D;
+      --text-color: #333;
+      --bg-color: #fff;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #fff;
-      color: #222;
+      background: var(--bg-color);
+      color: var(--text-color);
       line-height: 1.7;
     }
     a { text-decoration: none; color: inherit; }
 
     nav {
-      position: fixed;
-      top: 0; width: 100%;
+      position: fixed; top: 0; width: 100%;
       background: rgba(255,255,255,0.95);
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.2rem 3rem; z-index: 100;
       border-bottom: 1px solid #eee;
+      font-weight: 500;
     }
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem; font-weight: 700;
+      font-size: 1.8rem; font-weight: 700;
+      color: var(--primary-color);
     }
-    nav .menu a { margin-left: 2rem; font-size: 0.8rem; letter-spacing: 0.12em; }
+    nav .menu a {
+      margin-left: 2rem; font-size: 0.85rem; letter-spacing: 0.1em;
+      color: var(--text-color);
+      transition: color 0.3s;
+    }
+    nav .menu a:hover { color: var(--primary-color); }
 
     .hero {
-      height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 2rem;
-      margin-top: 70px;
-      background-size: cover; background-position: center;
-      position: relative;
+      height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 2rem; margin-top: 70px;
+      background-size: cover; background-position: center; position: relative;
+      overflow: hidden;
     }
     .hero::after {
       content: ""; position: absolute; inset: 0;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.5);
     }
-    .hero-content { position: relative; z-index: 2; }
+    .hero-content { position: relative; z-index: 2; animation: fadeInUp 1.2s ease forwards; opacity: 0; }
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.5rem, 5vw, 4.2rem);
       color: #fff; margin-bottom: 1rem;
     }
-    .hero p { color: #eee; max-width: 650px; margin: auto; }
+    .hero p { color: #f0f0f0; max-width: 650px; margin: auto; font-size: 1.1rem; }
     .hero a {
-      display: inline-block; margin-top: 2rem;
-      padding: 0.9rem 2.8rem; background: #fff; color: #000;
-      font-size: 0.75rem; letter-spacing: 0.15em;
+      display: inline-block; margin-top: 2rem; padding: 0.9rem 3rem;
+      background: var(--primary-color); color: #fff; font-weight: 600;
+      border-radius: 50px; letter-spacing: 0.15em;
+      transition: transform 0.3s;
+    }
+    .hero a:hover { transform: scale(1.05); }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     section { padding: 6rem 3rem; max-width: 1300px; margin: auto; }
-    .title {
-      text-align: center; font-family: 'Playfair Display', serif;
-      font-size: 2.5rem; margin-bottom: 1rem;
+    .title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 1rem; color: var(--primary-color); }
+    .subtitle { text-align: center; max-width: 700px; margin: 0 auto 4rem; color: var(--text-color); font-size: 1.1rem; }
+
+    /* Category Filter */
+    .categories { text-align: center; margin-bottom: 2rem; }
+    .categories button {
+      background: none; border: 1px solid var(--primary-color); padding: 0.6rem 1.2rem;
+      margin: 0 0.5rem; border-radius: 30px; cursor: pointer;
+      transition: all 0.3s;
+      color: var(--primary-color);
+      font-weight: 500;
     }
-    .subtitle { text-align: center; max-width: 700px; margin: 0 auto 4rem; color: #666; }
+    .categories button.active, .categories button:hover { background: var(--primary-color); color: #fff; }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
     }
     .gallery img {
       width: 100%; height: 420px; object-fit: cover;
-      opacity: 0; transform: scale(0.96);
-      transition: all 0.7s ease;
-      cursor: pointer;
+      opacity: 0; transform: scale(0.96); transition: all 0.7s ease; cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     .gallery img.show { opacity: 1; transform: scale(1); }
 
-    .about {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 3rem; align-items: center;
-    }
-    .about img { width: 100%; }
-    .about p { color: #555; }
+    .about { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: center; }
+    .about img { width: 100%; border-radius: 12px; }
+    .about p { color: var(--text-color); font-size: 1.05rem; }
 
     .contact { text-align: center; }
-    footer { text-align: center; padding: 3rem 1rem; font-size: 0.8rem; color: #777; }
+    .contact p { margin-bottom: 0.5rem; font-size: 1rem; }
+    .contact a { display: inline-block; background: var(--secondary-color); color: #fff; padding: 0.7rem 2rem; border-radius: 50px; margin-top: 1rem; transition: transform 0.3s; }
+    .contact a:hover { transform: scale(1.05); }
 
-    .lightbox {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.9);
-      display: none; align-items: center; justify-content: center;
-      z-index: 999;
-    }
-    .lightbox img { max-width: 90%; max-height: 90%; }
+    footer { text-align: center; padding: 3rem 1rem; font-size: 0.85rem; color: #777; border-top: 1px solid #eee; background: #f9f9f9; margin-top: 4rem; }
+
+    .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 999; }
+    .lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
 
     @media(max-width:768px){ nav{padding:1rem;} nav .menu{display:none;} }
   </style>
@@ -120,6 +142,12 @@
 <section id="work">
   <h2 class="title">Featured Stories</h2>
   <p class="subtitle">Moments captured with heart & soul.</p>
+  <div class="categories">
+    <button class="active" data-category="all">All</button>
+    <button data-category="wedding">Wedding</button>
+    <button data-category="prewedding">Pre-Wedding</button>
+    <button data-category="portrait">Portrait</button>
+  </div>
   <div class="gallery" id="gallery"></div>
 </section>
 
@@ -137,8 +165,15 @@
     <p>Email: hello@pavithrastories.com</p>
     <p>Instagram: @pavithrastories</p>
     <p>Based in India · Available Worldwide</p>
-    <br>
-    <a href="https://wa.me/919999999999" target="_blank">BOOK ON WHATSAPP</a>
+    <form action="https://formspree.io/f/yourformid" method="POST" style="margin-top:1rem;">
+      <input type="text" name="name" placeholder="Your Name" required style="padding:0.5rem;margin:0.5rem;" />
+      <input type="email" name="email" placeholder="Your Email" required style="padding:0.5rem;margin:0.5rem;" />
+      <textarea name="message" placeholder="Your Message" required style="padding:0.5rem;margin:0.5rem;"></textarea>
+      <button type="submit" style="padding:0.7rem 2rem;background:var(--primary-color);color:#fff;border:none;border-radius:50px;margin-top:0.5rem;cursor:pointer;">Send</button>
+    </form>
+    <div style="margin-top:2rem;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.123456!2d77.123456!3d12.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x123456789abcdef!2sPavithra+Stories!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" width="100%" height="300" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
   </div>
 </section>
 
@@ -148,31 +183,54 @@
 
 <script>
 async function loadSite(){
-  const site = await fetch('site.json').then(r=>r.json());
-  const gallery = await fetch('gallery.json').then(r=>r.json());
+  try{
+    const site = await fetch('site.json').then(r=>r.json());
+    const galleryData = await fetch('gallery.json').then(r=>r.json());
 
-  document.querySelector('.logo').innerText = site.brand?.name || 'Pavithra Stories';
-  document.querySelector('.hero').style.backgroundImage = `url(${site.hero.image})`;
-  document.querySelector('.hero h1').innerText = site.hero.title;
-  document.querySelector('.hero p').innerText = site.hero.subtitle;
-  document.querySelector('.hero a').innerText = site.hero.button;
+    // Hero
+    document.querySelector('.logo').innerText = site.brand?.name || 'Pavithra Stories';
+    document.querySelector('.hero').style.backgroundImage = `url(${site.hero.image})`;
+    document.querySelector('.hero h1').innerText = site.hero.title;
+    document.querySelector('.hero p').innerText = site.hero.subtitle;
+    document.querySelector('.hero a').innerText = site.hero.button;
 
-  document.querySelector('#about .title').innerText = site.about.title;
-  document.getElementById('aboutImg').src = site.about.image;
-  document.getElementById('aboutText').innerText = site.about.text;
+    // About
+    document.querySelector('#about .title').innerText = site.about.title;
+    document.getElementById('aboutImg').src = site.about.image;
+    document.getElementById('aboutText').innerText = site.about.text;
 
-  const gal = document.getElementById('gallery');
-  gallery.forEach(src=>{
-    const img=document.createElement('img'); img.src=src;
-    gal.appendChild(img);
-    observer.observe(img);
-    img.onclick=()=>{lb.style.display='flex'; lbImg.src=src;}
-  });
+    // Gallery
+    const gallery = document.getElementById('gallery');
+    galleryData.forEach(item=>{
+      const img=document.createElement('img');
+      img.src=item.src;
+      img.dataset.category = item.category;
+      gallery.appendChild(img);
+      observer.observe(img);
+      img.onclick = ()=>{lb.style.display='flex'; lbImg.src=item.src;}
+    });
+
+    // Category filter
+    document.querySelectorAll('.categories button').forEach(btn=>{
+      btn.onclick=()=>{
+        document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.category;
+        document.querySelectorAll('#gallery img').forEach(img=>{
+          img.style.display = (cat==='all'||img.dataset.category===cat)?'block':'none';
+        });
+      }
+    });
+
+  } catch(e){
+    console.error(e);
+    document.body.innerHTML='<h2 style="padding:40px;font-family:sans-serif">Failed to load site data. Check JSON files.</h2>';
+  }
 }
 
-const observer=new IntersectionObserver(e=>e.forEach(i=>i.isIntersecting&&i.target.classList.add('show')),{threshold:0.2});
-const lb=document.getElementById('lightbox');
-const lbImg=document.getElementById('lightboxImg');
+const observer = new IntersectionObserver(e=>e.forEach(i=>i.isIntersecting&&i.target.classList.add('show')),{threshold:0.2});
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lightboxImg');
 lb.onclick=()=>lb.style.display='none';
 
 loadSite();
