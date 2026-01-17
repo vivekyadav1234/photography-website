@@ -18,224 +18,73 @@
 
 /* RESET */
 *{box-sizing:border-box;scroll-behavior:smooth;margin:0;padding:0}
-
-body{
-  font-family:'Poppins',sans-serif;
-  background:var(--bg);
-  color:var(--dark);
-  line-height:1.8;
-}
-
-/* HEADINGS */
-h1,h2,h3{
-  font-family:'Playfair Display',serif;
-  color:#1f1f1f;
-  letter-spacing:.5px;
-}
-
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--dark);line-height:1.8}
+h1,h2,h3{font-family:'Playfair Display',serif;color:#1f1f1f;letter-spacing:.5px}
 p{color:var(--muted)}
-
-section{
-  padding:110px 8%;
-  opacity:0;
-  transform:translateY(40px);
-  animation:fadeUp .9s ease forwards;
-}
-
+section{padding:110px 8%;opacity:0;transform:translateY(40px);animation:fadeUp .9s ease forwards}
 @keyframes fadeUp{to{opacity:1;transform:none}}
 
 /* NAVIGATION */
 .navbar{
-  position:fixed;
-  top:0;width:100%;
-  z-index:1000;
-  background:rgba(241,235,221,.95);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 8%;
+  position:fixed;top:0;width:100%;z-index:1000;
+  background:rgba(241,235,221,.95);display:flex;justify-content:space-between;align-items:center;padding:18px 8%;
   backdrop-filter:blur(6px);
 }
-
-.nav-logo{
-  font-size:1.4rem;color:var(--primary);
-  cursor:pointer;font-family:'Playfair Display',serif;
-}
-
-.navbar nav a{
-  margin-left:26px;text-decoration:none;color:#333;font-size:.95rem;position:relative;
-}
-
-.navbar nav a.active,
-.navbar nav a:hover{color:var(--primary)}
+.nav-logo{font-size:1.4rem;color:var(--primary);cursor:pointer;font-family:'Playfair Display',serif}
+.navbar nav a{margin-left:26px;text-decoration:none;color:#333;font-size:.95rem;position:relative}
+.navbar nav a.active,.navbar nav a:hover{color:var(--primary)}
 
 /* HERO SLIDER */
-#hero{
-  height:100vh;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.hero-slide{
-  position:absolute;
-  width:100%;height:100%;
-  background-size:cover;
-  background-position:center;
-  opacity:0;
-  transition:opacity 1s ease-in-out;
-}
-
+#hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-slide{position:absolute;width:100%;height:100%;background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease-in-out}
 .hero-slide.active{opacity:1}
-
-.hero-content{
-  position:relative;
-  z-index:10;
-  max-width:760px;
-  text-align:center;
-  color:#1f1f1f;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:26px;
-  padding:14px 36px;
-  border:1px solid var(--primary);
-  color:var(--primary);
-  text-decoration:none;
-  transition:.4s;
-}
-
-.btn:hover{
-  background:var(--primary);
-  color:#fff;
-}
+.hero-content{position:relative;z-index:10;max-width:760px;text-align:center;color:#1f1f1f;animation:slideIn 1s ease forwards}
+@keyframes slideIn{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:none}}
+.btn{display:inline-block;margin-top:26px;padding:14px 36px;border:1px solid var(--primary);color:var(--primary);text-decoration:none;transition:.4s}
+.btn:hover{background:var(--primary);color:#fff}
 
 /* CENTERED SECTIONS */
 .center{text-align:center;max-width:850px;margin:auto}
 
 /* ABOUT */
-#about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-}
-
-#about img{
-  width:100%;
-  border-radius:18px;
-}
+#about{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+#about img{width:100%;border-radius:18px}
 
 /* GALLERY */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:26px;
-  margin-top:50px;
-}
-
-.gallery img{
-  width:100%;
-  height:340px;
-  object-fit:cover;
-  border-radius:18px;
-  cursor:pointer;
-  transition:.6s;
-}
-
-.gallery img:hover{
-  transform:scale(1.08);
-}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px;margin-top:50px}
+.gallery img{width:100%;height:340px;object-fit:cover;border-radius:18px;cursor:pointer;transition:.6s}
+.gallery img:hover{transform:scale(1.08)}
 
 /* WHY */
-.why-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
-  margin-top:50px;
-}
-
-.why-card{
-  background:#fff;
-  padding:36px;
-  border-radius:22px;
-  transition:.5s;
-}
-
-.why-card:hover{
-  transform:translateY(-10px);
-}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;margin-top:50px}
+.why-card{background:#fff;padding:36px;border-radius:22px;transition:.5s}
+.why-card:hover{transform:translateY(-10px)}
 
 /* VIDEOS */
-.videos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:30px;
-  margin-top:40px;
-}
-
-iframe, video{
-  width:100%;
-  height:220px;
-  border-radius:16px;
-  border:none;
-  object-fit:cover;
-}
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;margin-top:40px}
+iframe, video{width:100%;height:220px;border-radius:16px;border:none;object-fit:cover}
 
 /* CONTACT */
-#contact{
-  background:#e8e1cf;
-  border-radius:30px;
-  text-align:center;
-}
+#contact{background:#e8e1cf;border-radius:30px;text-align:center}
+#contact p{margin-bottom:6px}
 
 /* FOOTER */
-footer{
-  background:#dfd7c4;
-  padding:60px 8%;
-  text-align:center;
-}
+footer{background:#dfd7c4;padding:60px 8%;text-align:center}
 
 /* LIGHTBOX */
-.lightbox{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:2000;
-}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:2000}
 .lightbox img{max-width:90%;max-height:90%}
-.lightbox span{
-  position:absolute;
-  top:30px;right:40px;font-size:32px;color:#fff;cursor:pointer;
-}
+.lightbox span{position:absolute;top:30px;right:40px;font-size:32px;color:#fff;cursor:pointer}
 
 /* Category Filter */
 .categories{text-align:center;margin-bottom:2rem}
-.categories button{
-  background:none;border:1px solid var(--primary);
-  padding:.6rem 1.2rem;margin:0 .5rem;border-radius:30px;
-  cursor:pointer;color:var(--primary);
-}
-.categories button.active,
-.categories button:hover{background:var(--primary);color:#fff}
+.categories button{background:none;border:1px solid var(--primary);padding:.6rem 1.2rem;margin:0 .5rem;border-radius:30px;cursor:pointer;color:var(--primary)}
+.categories button.active,.categories button:hover{background:var(--primary);color:#fff}
 
 /* FLOATING CONTACT BUTTONS */
-.floating-contact{
-  position:fixed;bottom:25px;right:25px;display:flex;flex-direction:column;gap:12px;z-index:3000;
-}
-.floating-contact a{
-  display:flex;align-items:center;justify-content:center;
-  width:50px;height:50px;border-radius:50%;
-  background:var(--primary);color:#fff;text-decoration:none;
-  font-size:24px;
-  box-shadow:0 4px 8px rgba(0,0,0,0.2);
-  transition:.3s;
-}
-.floating-contact a:hover{transform:scale(1.15);}
+.floating-contact{position:fixed;bottom:25px;right:25px;display:flex;flex-direction:column;gap:12px;z-index:3000}
+.floating-contact a{display:flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;background:var(--primary);color:#fff;text-decoration:none;font-size:24px;box-shadow:0 4px 8px rgba(0,0,0,0.2);transition:.3s}
+.floating-contact a:hover{transform:scale(1.15)}
 
 @media(max-width:768px){#about{grid-template-columns:1fr}}
 </style>
@@ -244,11 +93,9 @@ footer{
 <body>
 
 <header class="navbar">
-  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    Pavithra Stories
-  </div>
+  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Pavithra Stories</div>
   <nav>
-    <a href="#hero">Home</a>
+    <a href="#hero" class="active">Home</a>
     <a href="#about">About</a>
     <a href="#gallery">Services</a>
     <a href="#studio">Studio</a>
@@ -257,12 +104,8 @@ footer{
   </nav>
 </header>
 
-<!-- HERO SLIDER -->
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-slide" data-src="hero1.jpg"></div>
-  <div class="hero-slide" data-src="hero2.jpg"></div>
-  <div class="hero-slide" data-src="hero3.jpg"></div>
-
   <div class="hero-content">
     <h1 id="heroTitle"></h1>
     <p id="heroSub"></p>
@@ -317,7 +160,7 @@ footer{
 <section id="videos">
   <div class="center">
     <h2>Cinematic Films</h2>
-    <p>Our films feel personal, emotional, and timeless — crafted like cinema, felt like memories.</p>
+    <p>Hover to preview our films — cinematic stories that feel personal and timeless.</p>
   </div>
   <div class="videos" id="videoGrid"></div>
 </section>
@@ -345,61 +188,56 @@ footer{
 </div>
 
 <script>
-/* HERO SLIDER */
-const slides=document.querySelectorAll('.hero-slide');
-slides.forEach(s=>{
-  const src=s.dataset.src;
-  s.style.backgroundImage=`url(${src})`;
-});
-let currentSlide=0;
-function showSlide(index){
-  slides.forEach((s,i)=>s.classList.toggle('active',i===index));
-}
-setInterval(()=>{
-  currentSlide=(currentSlide+1)%slides.length;
-  showSlide(currentSlide);
-},5000);
-showSlide(currentSlide);
-
-/* LIGHTBOX */
+// LIGHTBOX
 function openLightbox(src){lightboxImg.src=src;lightbox.style.display='flex'}
 function closeLightbox(){lightbox.style.display='none'}
 
-/* ACTIVE NAV */
+// ACTIVE NAV
 const sections=document.querySelectorAll("section");
 const navLinks=document.querySelectorAll("nav a");
 window.addEventListener("scroll",()=>{
   let current="";
-  sections.forEach(sec=>{
-    if(pageYOffset>=sec.offsetTop-120) current=sec.id;
-  });
-  navLinks.forEach(a=>{
-    a.classList.remove("active");
-    if(a.getAttribute("href")==="#"+current) a.classList.add("active");
-  });
+  sections.forEach(sec=>{if(pageYOffset>=sec.offsetTop-120) current=sec.id;});
+  navLinks.forEach(a=>{a.classList.remove("active"); if(a.getAttribute("href")==="#"+current) a.classList.add("active");});
 });
 
-/* LOAD SITE DATA */
-async function loadSite(){
-  const site=await fetch('site.json').then(r=>r.json());
-  heroTitle.innerText=site.hero.messages[0].title;
-  heroSub.innerText=site.hero.messages[0].subtitle;
-  heroBtn.innerText=site.hero.button;
-  aboutTitle.innerText=site.about.title;
-  aboutText.innerText=site.about.text;
-  aboutImg.src=site.about.image;
+// HERO SLIDER FROM JSON
+async function loadHeroSlides() {
+  const site = await fetch('site.json').then(r => r.json());
+  const heroContainer = document.getElementById('hero');
+  const heroContent = document.querySelector('.hero-content');
+
+  heroTitle.innerText = site.hero.messages[0].title;
+  heroSub.innerText = site.hero.messages[0].subtitle;
+  heroBtn.innerText = site.hero.messages[0].button;
+
+  // Remove old slides if any
+  document.querySelectorAll('.hero-slide').forEach(s=>s.remove());
+
+  // Add slides from JSON
+  site.hero.slides.forEach((s,i)=>{
+    const div=document.createElement('div');
+    div.className='hero-slide' + (i===0?' active':'');
+    div.style.backgroundImage=`url(${s.image})`;
+    heroContainer.insertBefore(div,heroContent);
+  });
+
+  const slides=document.querySelectorAll('.hero-slide');
+  let currentSlide=0;
+  setInterval(()=>{
+    currentSlide=(currentSlide+1)%slides.length;
+    slides.forEach((s,i)=>s.classList.toggle('active',i===currentSlide));
+  },5000);
 }
 
+// GALLERY
 async function loadGallery(){
   const data=await fetch('gallery.json').then(r=>r.json());
   data.forEach(i=>{
-    const img=document.createElement('img');
-    img.src=i.src;img.dataset.category=i.category;
-    img.onclick=()=>openLightbox(i.src);
-    galleryGrid.appendChild(img);
+    const img=document.createElement('img');img.src=i.src;img.dataset.category=i.category;
+    img.onclick=()=>openLightbox(i.src);galleryGrid.appendChild(img);
   });
 }
-
 document.querySelectorAll('.categories button').forEach(btn=>{
   btn.onclick=()=>{
     document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
@@ -411,45 +249,40 @@ document.querySelectorAll('.categories button').forEach(btn=>{
   }
 });
 
+// STUDIO
 async function loadStudio(){
   const s=await fetch('studio.json').then(r=>r.json());
   studioText.innerText=s.text;
   s.images.forEach(src=>{
-    const img=document.createElement('img');
-    img.src=src;img.onclick=()=>openLightbox(src);
+    const img=document.createElement('img');img.src=src;img.onclick=()=>openLightbox(src);
     studioGallery.appendChild(img);
   });
 }
 
+// WHY
 async function loadWhy(){
   const w=await fetch('why.json').then(r=>r.json());
   w.forEach(i=>{
-    const d=document.createElement('div');
-    d.className='why-card';
+    const d=document.createElement('div');d.className='why-card';
     d.innerHTML=`<h3>${i.title}</h3><p>${i.text}</p>`;
     whyGrid.appendChild(d);
   });
 }
 
+// VIDEOS
 async function loadVideos(){
   const v=await fetch('videos.json').then(r=>r.json());
   v.forEach(i=>{
     const vid=document.createElement('video');
-    vid.src=i.src;
-    vid.muted=true;vid.loop=true;vid.playsInline=true;
-    vid.style.borderRadius='16px';
-    vid.style.width='100%';
-    vid.style.height='220px';
-    vid.style.objectFit='cover';
+    vid.src=i.src;vid.muted=true;vid.loop=true;vid.playsInline=true;vid.controls=true;
     vid.addEventListener('mouseenter',()=>vid.play());
     vid.addEventListener('mouseleave',()=>vid.pause());
     videoGrid.appendChild(vid);
   });
 }
 
-/* INIT */
-loadSite();loadGallery();loadStudio();loadWhy();loadVideos();
+// INIT
+loadHeroSlides();loadGallery();loadStudio();loadWhy();loadVideos();
 </script>
-
 </body>
 </html>
