@@ -1,13 +1,6 @@
-{
-  "hero": {
-    "image": "images/banner.jpg",
-    "title": "Where Love Meets Art",
-    "subtitle": "Wedding, portrait & lifestyle photography that captures real emotions.",
-    "button": "BOOK YOUR DATE"
-  },
-  "about": {
-    "title": "About Us",
-    "image": "images/about.jpg",
-    "text": "We are storytellers at heart. Our photography blends candid emotions, beautiful light, and timeless compositions."
-  }
+"hero": {
+  "image": "images/banner.jpg",
+  "title": "Where Love Meets Art",
+  "subtitle": "Wedding, portrait & lifestyle photography that captures real emotions.",
+  "button": "BOOK YOUR DATE"
 }
