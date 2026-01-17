@@ -1,7 +1,7 @@
 [
-  {"src": "images/Img1.jpg", "category": "wedding"},
-  {"src": "images/Img2.jpg", "category": "wedding"},
-  {"src": "images/Img3.jpg", "category": "prewedding"},
-  {"src": "images/Img4.jpg", "category": "prewedding"},
-  {"src": "images/Img5.jpg", "category": "portrait"}
+  {"src": "images/img1.png", "category": "wedding"},
+  {"src": "images/img2.png", "category": "wedding"},
+  {"src": "images/img3.jpg", "category": "prewedding"},
+  {"src": "images/img4.jpg", "category": "prewedding"},
+  {"src": "images/img5.jpg", "category": "portrait"}
 ]
