@@ -1,5 +1,10 @@
 [
-  {"client": "Riya & Aman", "text": "Absolutely stunning work! Every photo felt alive and emotional."},
-  {"client": "Sneha & Rahul", "text": "Professional, calm, and incredibly creative team."},
-  {"client": "Anjali & Karan", "text": "We relive our wedding day every time we see the photos."}
+  {
+    "name": "Ananya & Karthik",
+    "text": "Pavithra Stories didn’t just capture our wedding — they captured our emotions. Every photo feels alive."
+  },
+  {
+    "name": "Sneha & Rahul",
+    "text": "Professional, calm, and incredibly creative. We relive our wedding day every time we see the photos."
+  }
 ]
