@@ -318,16 +318,18 @@ async function loadWhy(){
 }
 
 // VIDEOS
-async function loadVideos(){
-  const v=await fetch('videos.json').then(r=>r.json());
-  v.forEach(i=>{
-    const vid=document.createElement('video');
-    vid.src=i.src;vid.muted=true;vid.loop=true;vid.playsInline=true;vid.controls=true;
-    vid.addEventListener('mouseenter',()=>vid.play());
-    vid.addEventListener('mouseleave',()=>vid.pause());
-    videoGrid.appendChild(vid);
+async function loadVideos() {
+  const v = await fetch('videos.json').then(r => r.json());
+  v.forEach(i => {
+    const iframe = document.createElement('iframe');
+    iframe.src = i.src.replace("watch?v=", "embed/"); // convert to embed URL
+    iframe.frameBorder = 0;
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    videoGrid.appendChild(iframe);
   });
 }
+
 // LOAD ABOUT SECTION
 async function loadAbout() {
   const site = await fetch('site.json').then(r => r.json());
