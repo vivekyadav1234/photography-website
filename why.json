@@ -1,18 +1,22 @@
-[
-  {
-    "title": "500+ Weddings Captured",
-    "text": "We have beautifully captured hundreds of weddings, each story unique and emotional."
-  },
-  {
-    "title": "10+ Years of Experience",
-    "text": "Our expertise ensures flawless execution and creativity at every step."
-  },
-  {
-    "title": "Available Worldwide",
-    "text": "From Bengaluru to anywhere in the world, we are ready to travel and capture your story."
-  },
-  {
-    "title": "Cinematic Videography",
-    "text": "Our videos are crafted like films, capturing every emotion in motion."
-  }
-]
+{
+  "title": "Why Choose Pavithra Stories?",
+  "intro": "We don’t just take photographs — we craft experiences, tell stories, and preserve emotions that last a lifetime. Here’s why couples across Bengaluru trust us with their most important moments:",
+  "points": [
+    {
+      "title": "Story-First Photography",
+      "text": "Every wedding is a story, not a photoshoot. We focus on genuine emotions, real moments, and natural interactions."
+    },
+    {
+      "title": "Cultural Sensitivity",
+      "text": "From traditional rituals to modern celebrations, we respect and understand every culture and ceremony."
+    },
+    {
+      "title": "Cinematic Films",
+      "text": "Our wedding films are crafted like cinema — emotional, immersive, and timeless."
+    },
+    {
+      "title": "Calm & Professional Team",
+      "text": "We blend seamlessly into your celebration, allowing you to be yourself while we capture magic."
+    }
+  ]
+}
