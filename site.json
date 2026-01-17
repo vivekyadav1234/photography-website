@@ -2,15 +2,19 @@
   "brand": {
     "name": "Pavithra Stories"
   },
-  "hero": {
-    "image": "images/banner.jpg",
+"hero": {
     "messages": [
       {
-        "title": "Where Love Meets Art",
-        "subtitle": "Wedding Photography & Cinematic Films in Bengaluru — capturing real emotions, honest moments, and timeless memories."
+        "title": "Royale Moments Captured",
+        "subtitle": "Elegance, Love, & Storytelling in Every Frame",
+        "button": "Book Your Date"
       }
     ],
-    "button": "Book Your Date"
+    "slides": [
+      { "image": "hero1.jpg" },
+      { "image": "hero2.jpg" },
+      { "image": "hero3.jpg" }
+    ]
   },
   "about": {
     "title": "About Pavithra Stories",
