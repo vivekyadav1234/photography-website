@@ -151,7 +151,7 @@ async function loadSite(){
   const site = await fetch('site.json').then(r=>r.json());
   const gallery = await fetch('gallery.json').then(r=>r.json());
 
-  document.querySelector('.logo').innerText = site.brand.name;
+  document.querySelector('.logo').innerText = site.brand?.name || 'Pavithra Stories';
   document.querySelector('.hero').style.backgroundImage = `url(${site.hero.image})`;
   document.querySelector('.hero h1').innerText = site.hero.title;
   document.querySelector('.hero p').innerText = site.hero.subtitle;
