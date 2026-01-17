@@ -1,7 +1,7 @@
 [
-  "images/Img1.png",
-  "images/Img2.png",
-  "images/Img3.jpg",
-  "images/Img4.jpg",
-  "images/Img5.jpg"
+  {"src": "images/Img1.jpg", "category": "wedding"},
+  {"src": "images/Img2.jpg", "category": "wedding"},
+  {"src": "images/Img3.jpg", "category": "prewedding"},
+  {"src": "images/Img4.jpg", "category": "prewedding"},
+  {"src": "images/Img5.jpg", "category": "portrait"}
 ]
