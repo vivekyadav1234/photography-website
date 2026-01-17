@@ -345,7 +345,7 @@ document.querySelectorAll('.categories button').forEach(btn=>{
         document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
         const cat = btn.dataset.category;
-        document.querySelectorAll('#gallery img').forEach(img=>{
+        document.querySelectorAll('#galleryGrid img').forEach(img=>{
           img.style.display = (cat==='all'||img.dataset.category===cat)?'block':'none';
         });
       }
