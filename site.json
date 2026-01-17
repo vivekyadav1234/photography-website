@@ -1,32 +1,19 @@
 {
   "brand": {
-    "name": "Pavithra Stories"
+    "name": "Pavithra Stories",
+    "tagline": "Where Love Meets Art"
   },
+
   "hero": {
     "image": "images/banner.jpg",
-    "button": "BOOK YOUR DATE",
-    "messages": [
-      {
-        "title": "Our Photography & Videography Services in Bengaluru",
-        "subtitle": "At Pavithra Stories, we capture every precious moment — every smile, tear, and joyful embrace — with elegance and creativity."
-      },
-      {
-        "title": "Real Stories. Genuine Moments.",
-        "subtitle": "We believe in telling your love story through our lens, creating memories that last a lifetime."
-      },
-      {
-        "title": "Elegance Captured for a Lifetime",
-        "subtitle": "From grand weddings to intimate portraits, we craft timeless experiences that immortalize your emotions."
-      }
-    ]
+    "title": "Wedding Photography & Cinematic Films in Bengaluru",
+    "subtitle": "From sacred South Indian rituals to vibrant North Indian celebrations, from elegant Christian weddings to intimate court marriages — we capture love in its purest form. Every frame is crafted with emotion, honesty, and timeless elegance.",
+    "button": "Explore Our Stories"
   },
+
   "about": {
     "title": "About Pavithra Stories",
     "image": "images/about.jpg",
-    "text": "At Pavithra Stories, every photograph is a chapter of a love story. We focus on genuine moments, emotions, and storytelling through our lens. Each wedding, pre-wedding, or portrait session is crafted to reflect your unique journey and cherished memories."
-  },
-  "studio": {
-    "image": "images/studio.jpg",
-    "text": "Our studio is a space where creativity meets emotion. We meticulously design every shoot to ensure an elegant, seamless, and personalized experience for every client."
+    "text": "At Pavithra Stories, we believe photography is more than images — it is memory, emotion, and legacy. Every wedding is unique, every couple has a story, and every moment deserves to be preserved with authenticity.\n\nOur approach is simple yet powerful: observe quietly, feel deeply, and capture truthfully. From the nervous smiles before the ceremony to the laughter that follows, we document moments as they naturally unfold.\n\nWith a deep respect for traditions, cultures, and emotions, we blend creativity with storytelling to create photographs and films that feel real — today, tomorrow, and forever."
   }
 }
