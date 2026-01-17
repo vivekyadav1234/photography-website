@@ -224,14 +224,7 @@
   <section id="work">
     <h2 class="title">Featured Stories</h2>
     <p class="subtitle">A glimpse into weddings, portraits, and moments we’ve been trusted to capture.</p>
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
-      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91">
-      <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8">
-      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
-      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
-      <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce">
-    </div>
+    <div class="gallery" id="gallery"></div>
   </section>
 
   <section id="services">
@@ -281,32 +274,35 @@
   </div>
 
   <script>
-    // Reveal animation on scroll
-    const images = document.querySelectorAll('.gallery img');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
+    async function loadGallery() {
+      const res = await fetch('gallery.json');
+      const images = await res.json();
+      const gallery = document.getElementById('gallery');
+
+      images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+
+        img.addEventListener('click', () => {
+          document.getElementById('lightbox').style.display = 'flex';
+          document.getElementById('lightboxImg').src = src;
+        });
+
+        gallery.appendChild(img);
       });
-    }, { threshold: 0.2 });
 
-    images.forEach(img => observer.observe(img));
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.2 });
 
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
+      document.querySelectorAll('.gallery img').forEach(img => observer.observe(img));
+    }
 
-    images.forEach(img => {
-      img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-      });
-    });
-
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-    });
+    loadGallery();
   </script>
 </body>
 </html>
