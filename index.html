@@ -85,6 +85,7 @@
     /* SECTION */
     section {
       padding: 6rem 3rem;
+      max-width: 1300px;
       margin: auto;
     }
 
@@ -212,11 +213,11 @@
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="hero">
     <div>
-      <h1>Where Love Meets Art</h1>
-      <p>Wedding, portrait & lifestyle photography that captures real emotions and timeless moments.</p>
-      <a href="#contact">BOOK YOUR DATE</a>
+      <h1 id="heroTitle"></h1>
+      <p id="heroSubtitle"></p>
+      <a href="#contact" id="heroButton"></a>
     </div>
   </section>
 
@@ -238,10 +239,10 @@
   </section>
 
   <section id="about">
-    <h2 class="title">About Us</h2>
+    <h2 class="title" id="aboutTitle"></h2>
     <div class="about">
-      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
-      <p>We are storytellers at heart. Our photography blends candid emotions, beautiful light, and timeless compositions. Every wedding and portrait is treated as a unique story worth remembering.</p>
+      <img id="aboutImage" />
+      <p id="aboutText"></p>
     </div>
   </section>
 
@@ -273,7 +274,44 @@
   </div>
 
   <script>
-    async function loadGallery() {
+    async function loadSiteData() {
+      const siteRes = await fetch('site.json');
+      const site = await siteRes.json();
+
+      // HERO
+      document.getElementById('hero').style.background = `url(${site.hero.image}) center/cover no-repeat`;
+      document.getElementById('heroTitle').innerText = site.hero.title;
+      document.getElementById('heroSubtitle').innerText = site.hero.subtitle;
+      document.getElementById('heroButton').innerText = site.hero.button;
+
+      // ABOUT
+      document.getElementById('aboutTitle').innerText = site.about.title;
+      document.getElementById('aboutText').innerText = site.about.text;
+      document.getElementById('aboutImage').src = site.about.image;
+
+      // GALLERY
+      const galleryRes = await fetch('gallery.json');
+      const images = await galleryRes.json();
+      const gallery = document.getElementById('gallery');
+
+      images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.addEventListener('click', () => {
+          document.getElementById('lightbox').style.display = 'flex';
+          document.getElementById('lightboxImg').src = src;
+        });
+        gallery.appendChild(img);
+      });
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('show'));
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll('.gallery img').forEach(img => observer.observe(img));
+    }
+
+    loadSiteData();() {
       const res = await fetch('gallery.json');
       const images = await res.json();
       const gallery = document.getElementById('gallery');
