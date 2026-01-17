@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding & Portrait Photography</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #ffffff;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      z-index: 100;
+      border-bottom: 1px solid #eee;
+    }
+
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    nav .menu a {
+      margin-left: 2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 70px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: #f0f0f0;
+      max-width: 650px;
+      margin: auto;
+      font-size: 1rem;
+    }
+
+    .hero a {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 2.5rem;
+      background: #fff;
+      color: #000;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+    }
+
+    /* SECTION */
+    section {
+      padding: 6rem 3rem;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      color: #666;
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    /* SERVICES */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .service h3 { margin-bottom: 0.5rem; }
+    .service p { color: #666; font-size: 0.95rem; }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about img { width: 100%; }
+    .about p { color: #555; }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial {
+      border: 1px solid #eee;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p { margin-bottom: 0.5rem; }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem; }
+      nav .menu { display: none; }
+      .hero { margin-top: 60px; }
+    }
+    
+    /* GALLERY ANIMATIONS */
+    .gallery img {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      transition: all 0.6s ease;
+    }
+
+    .gallery img.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Light Studio</div>
+    <div class="menu">
+      <a href="#work">GALLERY</a>
+      <a href="#services">SERVICES</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1>Where Love Meets Art</h1>
+      <p>Wedding, portrait & lifestyle photography that captures real emotions and timeless moments.</p>
+      <a href="#contact">BOOK YOUR DATE</a>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2 class="title">Featured Stories</h2>
+    <p class="subtitle">A glimpse into weddings, portraits, and moments we’ve been trusted to capture.</p>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91">
+      <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+      <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce">
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="title">What We Do</h2>
+    <p class="subtitle">Professional photography & films crafted with care, creativity, and emotion.</p>
+    <div class="services">
+      <div class="service"><h3>Wedding Photography</h3><p>Complete wedding coverage with storytelling approach.</p></div>
+      <div class="service"><h3>Pre-Wedding</h3><p>Creative and cinematic pre-wedding shoots.</p></div>
+      <div class="service"><h3>Portraits</h3><p>Personal, lifestyle and professional portraits.</p></div>
+      <div class="service"><h3>Cinematic Films</h3><p>Emotion-driven wedding films & highlights.</p></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="title">About Us</h2>
+    <div class="about">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
+      <p>We are storytellers at heart. Our photography blends candid emotions, beautiful light, and timeless compositions. Every wedding and portrait is treated as a unique story worth remembering.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="title">Client Love</h2>
+    <div class="testimonials">
+      <div class="testimonial">“Absolutely stunning work. Every photo felt alive and emotional.”</div>
+      <div class="testimonial">“Professional, calm, and incredibly creative team.”</div>
+      <div class="testimonial">“We relive our wedding day every time we see the photos.”</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="title">Contact Us</h2>
+    <div class="contact">
+      <p>Email: hello@lightstudio.com</p>
+      <p>Instagram: @lightstudio</p>
+      <p>Based in India · Available Worldwide</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Light Studio Photography
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <img id="lightboxImg" />
+  </div>
+
+  <script>
+    // Reveal animation on scroll
+    const images = document.querySelectorAll('.gallery img');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    images.forEach(img => observer.observe(img));
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
