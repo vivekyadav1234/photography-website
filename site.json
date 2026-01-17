@@ -4,12 +4,29 @@
   },
   "hero": {
     "image": "images/banner.jpg",
-    "title": "Where Love Meets Art",
-    "subtitle": "Wedding, portrait & lifestyle photography that captures real emotions.",
-    "button": "BOOK YOUR DATE"
+    "button": "BOOK YOUR DATE",
+    "messages": [
+      {
+        "title": "Our Photography & Videography Services in Bengaluru",
+        "subtitle": "At Pavithra Stories, we capture every precious moment — every smile, tear, and joyful embrace — with elegance and creativity."
+      },
+      {
+        "title": "Real Stories. Genuine Moments.",
+        "subtitle": "We believe in telling your love story through our lens, creating memories that last a lifetime."
+      },
+      {
+        "title": "Elegance Captured for a Lifetime",
+        "subtitle": "From grand weddings to intimate portraits, we craft timeless experiences that immortalize your emotions."
+      }
+    ]
   },
   "about": {
     "title": "About Pavithra Stories",
     "image": "images/about.jpg",
-    "text": "Pavithra is a passionate storyteller through her lens, capturing moments that are timeless, authentic, and full of emotion. From weddings to pre-weddings, portraits to lifestyle shoots, she believes every story deserves to be remembered beautifully. With an eye for detail and a love for natural light, Pavithra transforms ordinary moments into extraordinary memories, creating photographs that clients cherish for a lifetime. Based in India and available worldwide, she is committed to making every photoshoot a unique and joyful experience."  }
+    "text": "At Pavithra Stories, every photograph is a chapter of a love story. We focus on genuine moments, emotions, and storytelling through our lens. Each wedding, pre-wedding, or portrait session is crafted to reflect your unique journey and cherished memories."
+  },
+  "studio": {
+    "image": "images/studio.jpg",
+    "text": "Our studio is a space where creativity meets emotion. We meticulously design every shoot to ensure an elegant, seamless, and personalized experience for every client."
+  }
 }
