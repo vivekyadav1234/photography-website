@@ -23,6 +23,14 @@ h1,h2,h3{font-family:'Playfair Display',serif;color:#1f1f1f;letter-spacing:.5px}
 p{color:var(--muted)}
 section{padding:5% 5%;opacity:0;transform:translateY(40px);animation:fadeUp .9s ease forwards}
 @keyframes fadeUp{to{opacity:1;transform:none}}
+@media (max-width: 480px) {
+    .categories button {
+        flex: 1 1 45%;  /* Each button takes up ~45% width, wraps to next line */
+        margin: 5px 0;  /* Small margin between rows */
+        padding: 0.5rem 0; /* Slightly smaller padding for mobile */
+        font-size: 0.9rem;
+    }
+}
 /* MOBILE NAVIGATION */
 .navbar nav {
   display: flex;
