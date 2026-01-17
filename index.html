@@ -108,6 +108,8 @@ section{
   font-size:1.1rem;
   letter-spacing:.5px;
 }
+  .subtitle { text-align: center; max-width: 700px; margin: 0 auto 4rem; color: var(--text-color); font-size: 1.1rem; }
+
 
 /* STORY & GALLERY */
 .gallery{
@@ -252,6 +254,13 @@ footer p{
 
 <section id="gallery">
   <h2>Our Services</h2>
+  <p class="subtitle">Moments captured with heart & soul.</p>
+  <div class="categories">
+    <button class="active" data-category="all">All</button>
+    <button data-category="wedding">Wedding</button>
+    <button data-category="prewedding">Pre-Wedding</button>
+    <button data-category="portrait">Portrait</button>
+  </div>
   <div class="gallery" id="galleryGrid"></div>
 </section>
 
