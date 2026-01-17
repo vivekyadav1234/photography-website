@@ -13,6 +13,7 @@
   --bg:#f1ebdd;
   --primary:#b08a3e;
   --dark:#2b2b2b;
+  --text-soft:#4a463f;
 }
 
 *{box-sizing:border-box;scroll-behavior:smooth}
@@ -21,8 +22,8 @@ body{
   margin:0;
   font-family:'Poppins',sans-serif;
   background:var(--bg);
-  color:var(--dark);
-  line-height:1.8;
+  color:var(--text-soft);
+  line-height:1.9;
 }
 
 h1,h2,h3{
@@ -105,13 +106,18 @@ section{
 
 /* SERVICES */
 #services p{
-  font-size:1.1rem;
-  letter-spacing:.5px;
+  font-size:1.15rem;
+  max-width:720px;
 }
-  .subtitle { text-align: center; max-width: 700px; margin: 0 auto 4rem; color: var(--text-color); font-size: 1.1rem; }
 
+.subtitle{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 4rem;
+  font-size:1.1rem;
+}
 
-/* STORY & GALLERY */
+/* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
@@ -171,7 +177,7 @@ iframe{
 }
 
 #contact p{
-  font-size:1.05rem;
+  font-size:1.1rem;
 }
 
 /* FOOTER */
@@ -182,9 +188,9 @@ footer{
 }
 
 footer p{
-  max-width:700px;
+  max-width:720px;
   margin:auto;
-  font-size:.95rem;
+  font-size:1rem;
 }
 
 /* LIGHTBOX */
@@ -206,16 +212,23 @@ footer p{
   color:#fff;
   cursor:pointer;
 }
-/* Category Filter */
-    .categories { text-align: center; margin-bottom: 2rem; }
-    .categories button {
-      background: none; border: 1px solid var(--primary-color); padding: 0.6rem 1.2rem;
-      margin: 0 0.5rem; border-radius: 30px; cursor: pointer;
-      transition: all 0.3s;
-      color: var(--primary-color);
-      font-weight: 500;
-    }
-    .categories button.active, .categories button:hover { background: var(--primary-color); color: #fff; }
+
+/* CATEGORY */
+.categories{text-align:center;margin-bottom:2rem}
+.categories button{
+  background:none;
+  border:1px solid var(--primary);
+  padding:.6rem 1.2rem;
+  margin:0 .5rem;
+  border-radius:30px;
+  cursor:pointer;
+  color:var(--primary);
+}
+.categories button.active,
+.categories button:hover{
+  background:var(--primary);
+  color:#fff;
+}
 
 @media(max-width:768px){
   #about{grid-template-columns:1fr}
@@ -230,8 +243,8 @@ footer p{
   <nav>
     <a href="#hero">Home</a>
     <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#gallery">Story</a>
+    <a href="#services">Story</a>
+    <a href="#gallery">Services</a>
     <a href="#studio">Studio</a>
     <a href="#videos">Films</a>
     <a href="#contact">Contact</a>
@@ -256,21 +269,27 @@ footer p{
 
 <section id="services">
   <h2>Our Story</h2>
-   <p>
-    Every couple has a story — full of laughter, emotions, silent glances and unforgettable moments.  
-    We don’t stage memories. We feel them, frame them, and preserve them forever.
+  <p>
+    Every love story unfolds in moments — a glance, a smile, a quiet promise.
+    At Pavithra Stories, we don’t just photograph weddings.
+    We listen, observe, and preserve emotions exactly as they happen.
   </p>
 </section>
 
 <section id="gallery">
   <h2>Our Services</h2>
-  <p class="subtitle">Moments captured with heart & soul.</p>
+  <p class="subtitle">
+    Thoughtfully crafted visuals across weddings, pre-weddings, and portraits —
+    each frame guided by emotion and elegance.
+  </p>
+
   <div class="categories">
     <button class="active" data-category="all">All</button>
     <button data-category="wedding">Wedding</button>
     <button data-category="prewedding">Pre-Wedding</button>
     <button data-category="portrait">Portrait</button>
   </div>
+
   <div class="gallery" id="galleryGrid"></div>
 </section>
 
@@ -293,8 +312,8 @@ footer p{
 <section id="contact">
   <h2>Let’s Create Something Beautiful</h2>
   <p>
-    Your wedding is once in a lifetime.  
-    Let us turn fleeting moments into timeless memories.
+    Your wedding deserves more than coverage —
+    it deserves care, patience, and storytelling that lasts a lifetime.
   </p>
   <p>📍 Bengaluru • 📞 +91 XXXXXXXXXX</p>
   <iframe src="https://www.google.com/maps?q=Bengaluru&output=embed"></iframe>
@@ -302,8 +321,8 @@ footer p{
 
 <footer>
   <p>
-    Crafted with love, patience, and an eye for emotion.  
-    Pavithra Stories — where memories become legacy.
+    Built on trust, emotion, and timeless aesthetics.  
+    Pavithra Stories — preserving love beyond the wedding day.
   </p>
 </footer>
 
@@ -335,21 +354,22 @@ async function loadGallery(){
   data.forEach(i=>{
     const img=document.createElement('img');
     img.src=i.src;
+    img.dataset.category = i.category; // ✅ FIX
     img.onclick=()=>openLightbox(i.src);
     galleryGrid.appendChild(img);
   });
 }
-     // Category filter
+
 document.querySelectorAll('.categories button').forEach(btn=>{
-      btn.onclick=()=>{
-        document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        const cat = btn.dataset.category;
-        document.querySelectorAll('#galleryGrid img').forEach(img=>{
-          img.style.display = (cat==='all'||img.dataset.category===cat)?'block':'none';
-        });
-      }
-  });
+  btn.onclick=()=>{
+    document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat=btn.dataset.category;
+    document.querySelectorAll('#galleryGrid img').forEach(img=>{
+      img.style.display=(cat==='all'||img.dataset.category===cat)?'block':'none';
+    });
+  }
+});
 
 async function loadStudio(){
   const s=await fetch('studio.json').then(r=>r.json());
