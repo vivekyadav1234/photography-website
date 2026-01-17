@@ -1,13 +1,14 @@
 {
-  "brand": {
-    "name": "Pavithra Stories",
-    "tagline": "Capturing Love, Light & Timeless Stories"
-  },
-
-  "hero": {
-    "image": "images/banner.jpg",
-    "title": "Where Love Meets Art",
-    "subtitle": "Wedding, portrait & lifestyle photography that captures real emotions.",
-    "button": "BOOK YOUR DATE"
-  }
+ "hero": {
+  "image": "images/banner.jpg",
+  "title": "Where Love Meets Art",
+  "subtitle": "Wedding, portrait & lifestyle photography that captures real emotions.",
+  "button": "BOOK YOUR DATE"
+},
+  "about": {
+  "title": "About Pavithra Stories",
+  "image": "images/about.jpg",
+  "text": "We believe every love story deserves to be captured honestly."
+},
+  
 }
