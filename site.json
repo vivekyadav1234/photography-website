@@ -4,29 +4,17 @@
   },
   "hero": {
     "image": "images/banner.jpg",
-    "button": "BOOK YOUR DATE",
     "messages": [
       {
-        "title": "Our Photography & Videography Services in Bengaluru",
-        "subtitle": "At Pavithra Stories, we capture every precious moment — every smile, tear, and joyful embrace — with elegance and creativity."
-      },
-      {
-        "title": "Real Stories. Genuine Moments.",
-        "subtitle": "We believe in telling your love story through our lens, creating memories that last a lifetime."
-      },
-      {
-        "title": "Elegance Captured for a Lifetime",
-        "subtitle": "From grand weddings to intimate portraits, we craft timeless experiences that immortalize your emotions."
+        "title": "Where Love Meets Art",
+        "subtitle": "Wedding Photography & Cinematic Films in Bengaluru — capturing real emotions, honest moments, and timeless memories."
       }
-    ]
+    ],
+    "button": "Book Your Date"
   },
   "about": {
     "title": "About Pavithra Stories",
     "image": "images/about.jpg",
-    "text": "At Pavithra Stories, every photograph is a chapter of a love story. We focus on genuine moments, emotions, and storytelling through our lens. Each wedding, pre-wedding, or portrait session is crafted to reflect your unique journey and cherished memories."
-  },
-  "studio": {
-    "image": "images/studio.jpg",
-    "text": "Our studio is a space where creativity meets emotion. We meticulously design every shoot to ensure an elegant, seamless, and personalized experience for every client."
+    "text": "At Pavithra Stories, we believe every wedding is more than an event — it is a story written with love, traditions, emotions, and unforgettable moments. Based in Bengaluru, we specialize in wedding photography and cinematic films that feel natural, elegant, and deeply personal. From grand South Indian weddings to intimate ceremonies, portraits, and lifestyle shoots, our approach is simple: observe quietly, feel deeply, and capture honestly."
   }
 }
