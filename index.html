@@ -23,6 +23,38 @@ h1,h2,h3{font-family:'Playfair Display',serif;color:#1f1f1f;letter-spacing:.5px}
 p{color:var(--muted)}
 section{padding:110px 8%;opacity:0;transform:translateY(40px);animation:fadeUp .9s ease forwards}
 @keyframes fadeUp{to{opacity:1;transform:none}}
+/* MOBILE NAVIGATION */
+.navbar nav {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar nav a {
+  white-space: nowrap; /* Prevent wrapping issues */
+}
+
+/* Hamburger menu for mobile */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Gallery button wrapping */
+.categories {
+  display: flex;
+  flex-wrap: wrap; /* wrap buttons */
+  justify-content: center;
+}
 
 /* NAVIGATION */
 .navbar{
@@ -38,6 +70,9 @@ section{padding:110px 8%;opacity:0;transform:translateY(40px);animation:fadeUp .
 #hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .hero-slide{position:absolute;width:100%;height:100%;background-size:cover;background-position:center;opacity:0;transition:opacity 1s ease-in-out}
 .hero-slide.active{opacity:1}
+.hero-content h{color:white}
+.hero-content p{color:white}
+.hero-content a{color:white}
 .hero-content{position:relative;z-index:10;max-width:760px;text-align:center;color:white;animation:slideIn 1s ease forwards}
 @keyframes slideIn{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:none}}
 .btn{display:inline-block;margin-top:26px;padding:14px 36px;border:1px solid var(--primary);color:var(--primary);text-decoration:none;transition:.4s}
@@ -290,6 +325,47 @@ async function loadAbout() {
 
 // INIT
 loadHeroSlides();loadGallery();loadStudio();loadWhy();loadVideos();loadAbout();
+// Mobile
+  // MOBILE NAV TOGGLE
+const navbar = document.querySelector('.navbar');
+const nav = navbar.querySelector('nav');
+
+// Create toggle button dynamically
+const toggle = document.createElement('div');
+toggle.className = 'nav-toggle';
+toggle.innerHTML = '<span></span><span></span><span></span>';
+navbar.insertBefore(toggle, nav);
+
+// Toggle nav on click
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
+
+// Style for open nav on mobile
+const style = document.createElement('style');
+style.innerHTML = `
+  @media(max-width:768px){
+    .navbar nav {
+      position: absolute;
+      top: 65px;
+      right: 8%;
+      background: rgba(241,235,221,.95);
+      flex-direction: column;
+      width: 200px;
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+    }
+    .navbar nav.open {
+      display: flex;
+    }
+    .navbar nav a {
+      margin: 10px 0;
+    }
+    .nav-toggle { display: flex; }
+  }
+`;
+document.head.appendChild(style);
 
 </script>
 </body>
