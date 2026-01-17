@@ -137,11 +137,9 @@
 
 <!-- STUDIO -->
 <section id="studio">
-  <h2 class="title">Studio</h2>
-  <div class="studio">
-    <img id="studioImg" />
-    <p id="studioText">At Pavithra Stories, our studio is more than just a place — it’s a space where emotions come alive, creativity flows, and every frame tells a heartfelt story. Behind every shoot, we meticulously design the experience to be elegant, seamless, and uniquely yours.</p>
-  </div>
+  <h2 class="title">Studio Stories</h2>
+  <p class="subtitle" id="studioText"></p>
+  <div class="gallery" id="studioGallery"></div>
 </section>
 
 <!-- ABOUT -->
@@ -194,7 +192,8 @@ async function loadSite(){
     const galleryData = await fetch('gallery.json').then(r=>r.json());
     const whyData = await fetch('why.json').then(r=>r.json());
     const videoData = await fetch('videos.json').then(r=>r.json());
-
+    const studioData = await fetch('studio.json').then(r => r.json());
+    
     // Hero rotation
     const heroMsgs = site.hero.messages;
     let heroIndex = 0;
@@ -215,7 +214,22 @@ async function loadSite(){
     document.getElementById('aboutText').innerText = site.about.text;
 
     // Studio
-    document.getElementById('studioImg').src = site.studio.image;
+     document.getElementById('studioText').innerText = studioData.text;
+
+  const gallery = document.getElementById('studioGallery');
+  studioData.images.forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.classList.add('show');
+    img.style.cursor = 'pointer';
+    gallery.appendChild(img);
+
+    // Lightbox click
+    img.onclick = () => {
+      lb.style.display = 'flex';
+      lbImg.src = src;
+    };
+  });
 
     // Gallery
     const gallery = document.getElementById('gallery');
