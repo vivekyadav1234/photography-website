@@ -1,14 +1,5 @@
-{
-  "title": "Cinematic Wedding Films",
-  "subtitle": "Every film is crafted to relive emotions, moments, and memories — just the way you felt them.",
-  "videos": [
-    {
-      "type": "youtube",
-      "url": "https://www.youtube.com/embed/VIDEO_ID_1"
-    },
-    {
-      "type": "youtube",
-      "url": "https://www.youtube.com/embed/VIDEO_ID_2"
-    }
-  ]
-}
+[
+  {"src": "https://www.youtube.com/embed/VIDEO_ID_1"},
+  {"src": "https://www.youtube.com/embed/VIDEO_ID_2"},
+  {"src": "https://www.youtube.com/embed/VIDEO_ID_3"}
+]
