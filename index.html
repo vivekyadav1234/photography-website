@@ -206,6 +206,16 @@ footer p{
   color:#fff;
   cursor:pointer;
 }
+/* Category Filter */
+    .categories { text-align: center; margin-bottom: 2rem; }
+    .categories button {
+      background: none; border: 1px solid var(--primary-color); padding: 0.6rem 1.2rem;
+      margin: 0 0.5rem; border-radius: 30px; cursor: pointer;
+      transition: all 0.3s;
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+    .categories button.active, .categories button:hover { background: var(--primary-color); color: #fff; }
 
 @media(max-width:768px){
   #about{grid-template-columns:1fr}
@@ -329,6 +339,17 @@ async function loadGallery(){
     galleryGrid.appendChild(img);
   });
 }
+     // Category filter
+document.querySelectorAll('.categories button').forEach(btn=>{
+      btn.onclick=()=>{
+        document.querySelectorAll('.categories button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.category;
+        document.querySelectorAll('#gallery img').forEach(img=>{
+          img.style.display = (cat==='all'||img.dataset.category===cat)?'block':'none';
+        });
+      }
+  });
 
 async function loadStudio(){
   const s=await fetch('studio.json').then(r=>r.json());
