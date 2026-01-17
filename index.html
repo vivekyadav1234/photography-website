@@ -63,7 +63,7 @@
       font-size: clamp(2.5rem, 5vw, 4.2rem);
       color: #fff; margin-bottom: 1rem;
     }
-    .hero p { color: #f0f0f0; max-width: 650px; margin: auto; font-size: 1.1rem; }
+    .hero p { color: #f0f0f0; max-width: 700px; margin: auto; font-size: 1.1rem; }
     .hero a {
       display: inline-block; margin-top: 2rem; padding: 0.9rem 3rem;
       background: var(--primary-color); color: #fff; font-weight: 600;
@@ -107,6 +107,15 @@
     .about img { width: 100%; border-radius: 12px; }
     .about p { color: var(--text-color); font-size: 1.05rem; }
 
+    /* Stats / Why Choose Pavithra */
+    .stats { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; text-align: center; margin-top: 2rem; }
+    .stat { font-weight: 700; font-size: 1.6rem; color: var(--primary-color); }
+    .stat-label { font-weight: 400; font-size: 1rem; color: var(--text-color); }
+
+    /* Testimonials */
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .testimonial { padding: 2rem; border: 1px solid #eee; border-radius: 12px; font-size: 0.95rem; color: var(--text-color); background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
     .contact { text-align: center; }
     .contact p { margin-bottom: 0.5rem; font-size: 1rem; }
     .contact a { display: inline-block; background: var(--secondary-color); color: #fff; padding: 0.7rem 2rem; border-radius: 50px; margin-top: 1rem; transition: transform 0.3s; }
@@ -116,10 +125,8 @@
 
     .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 999; }
     .lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
-    #map {
-  width: 100%;
-  height: 70vh; /* full viewport height */
-}
+
+    #map { width: 100%; height: 70vh; margin-top: 4rem; }
 
     @media(max-width:768px){ nav{padding:1rem;} nav .menu{display:none;} }
   </style>
@@ -143,6 +150,15 @@
   </div>
 </section>
 
+<section id="stats">
+  <div class="title">Why Choose Pavithra?</div>
+  <div class="stats">
+    <div><div class="stat">500+</div><div class="stat-label">Weddings Captured</div></div>
+    <div><div class="stat">10+</div><div class="stat-label">Years of Experience</div></div>
+    <div><div class="stat">Worldwide</div><div class="stat-label">Available Globally</div></div>
+  </div>
+</section>
+
 <section id="work">
   <h2 class="title">Featured Stories</h2>
   <p class="subtitle">Moments captured with heart & soul.</p>
@@ -163,23 +179,25 @@
   </div>
 </section>
 
+<section id="testimonials">
+  <div class="title">Client Love</div>
+  <div class="testimonials" id="testimonialContainer"></div>
+</section>
+
 <section id="contact">
   <h2 class="title">Contact</h2>
- <div class="contact">
+  <div class="contact">
     <p>📧 Email: <a href="mailto:pavithra@example.com">pavithra@example.com</a></p>
     <p>📞 Call: <a href="tel:+911234567890">+91 12345 67890</a></p>
     <p>💬 WhatsApp: <a href="https://wa.me/911234567890" target="_blank">Chat on WhatsApp</a></p>
   </div>
 </section>
-<div id="map">
-<iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.123456789!2d-122.123456!3d37.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f1234567890%3A0xabcdef123456!2sPavithra+Studio!5e0!3m2!1sen!2sin!4v1234567890"
-  width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-</iframe>
 
+<div id="map">
+<iframe src="https://www.google.com/maps/embed?..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 </div>
 
-<footer>© 2026 Pavithra Stories</footer>
+<footer>© 2026 Pavithra Stories | Capturing Love, Emotion & Elegance</footer>
 
 <div class="lightbox" id="lightbox"><img id="lightboxImg"></div>
 
@@ -188,13 +206,22 @@ async function loadSite(){
   try{
     const site = await fetch('site.json').then(r=>r.json());
     const galleryData = await fetch('gallery.json').then(r=>r.json());
+    const testimonialsData = await fetch('testimonials.json').then(r=>r.json());
 
     // Hero
-    document.querySelector('.logo').innerText = site.brand?.name || 'Pavithra Stories';
+    const heroMessages = site.heroMessages || [site.hero];
+    let heroIndex = 0;
+    const h1 = document.querySelector('.hero h1');
+    const p = document.querySelector('.hero p');
+    const btn = document.querySelector('.hero a');
     document.querySelector('.hero').style.backgroundImage = `url(${site.hero.image})`;
-    document.querySelector('.hero h1').innerText = site.hero.title;
-    document.querySelector('.hero p').innerText = site.hero.subtitle;
-    document.querySelector('.hero a').innerText = site.hero.button;
+    btn.innerText = site.hero.button;
+    setInterval(()=>{
+      const msg = heroMessages[heroIndex];
+      h1.innerText = msg.title;
+      p.innerText = msg.subtitle;
+      heroIndex = (heroIndex+1)%heroMessages.length;
+    },4000);
 
     // About
     document.querySelector('#about .title').innerText = site.about.title;
@@ -222,6 +249,15 @@ async function loadSite(){
           img.style.display = (cat==='all'||img.dataset.category===cat)?'block':'none';
         });
       }
+    });
+
+    // Testimonials
+    const testimonialContainer = document.getElementById('testimonialContainer');
+    testimonialsData.forEach(t=>{
+      const div=document.createElement('div');
+      div.classList.add('testimonial');
+      div.innerText = `"${t.text}" - ${t.client}`;
+      testimonialContainer.appendChild(div);
     });
 
   } catch(e){
