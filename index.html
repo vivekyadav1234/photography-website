@@ -3,261 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PAVI Studios</title>
+  <title>Pavithra Stories | Wedding & Portrait Photography</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Montserrat', sans-serif;
-      background: #ffffff;
+      background: #fff;
       color: #222;
       line-height: 1.7;
     }
-
     a { text-decoration: none; color: inherit; }
 
-    /* NAVBAR */
     nav {
       position: fixed;
-      top: 0;
-      width: 100%;
+      top: 0; width: 100%;
       background: rgba(255,255,255,0.95);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 3rem;
-      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 3rem; z-index: 100;
       border-bottom: 1px solid #eee;
     }
-
-    nav .logo {
+    .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-size: 1.6rem; font-weight: 700;
     }
+    nav .menu a { margin-left: 2rem; font-size: 0.8rem; letter-spacing: 0.12em; }
 
-    nav .menu a {
-      margin-left: 2rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-    }
-
-    /* HERO */
     .hero {
       height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 2rem;
       margin-top: 70px;
-      color: #fff;
+      background-size: cover; background-position: center;
+      position: relative;
     }
-
+    .hero::after {
+      content: ""; position: absolute; inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero-content { position: relative; z-index: 2; }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 1rem;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      color: #fff; margin-bottom: 1rem;
     }
-
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      font-size: 1rem;
-    }
-
+    .hero p { color: #eee; max-width: 650px; margin: auto; }
     .hero a {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.8rem 2.5rem;
-      background: #fff;
-      color: #000;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
+      display: inline-block; margin-top: 2rem;
+      padding: 0.9rem 2.8rem; background: #fff; color: #000;
+      font-size: 0.75rem; letter-spacing: 0.15em;
     }
 
-    section {
-      padding: 6rem 3rem;
-      
-      margin: auto;
-    }
-
+    section { padding: 6rem 3rem; max-width: 1300px; margin: auto; }
     .title {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
+      text-align: center; font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; margin-bottom: 1rem;
     }
+    .subtitle { text-align: center; max-width: 700px; margin: 0 auto 4rem; color: #666; }
 
-    .subtitle {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 4rem;
-      color: #666;
-    }
-
-    /* GALLERY */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
-
     .gallery img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
+      width: 100%; height: 420px; object-fit: cover;
+      opacity: 0; transform: scale(0.96);
+      transition: all 0.7s ease;
       cursor: pointer;
-      opacity: 0;
-      transform: translateY(30px) scale(0.98);
-      transition: all 0.6s ease;
     }
+    .gallery img.show { opacity: 1; transform: scale(1); }
 
-    .gallery img.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    /* ABOUT */
     .about {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 3rem;
-      align-items: center;
+      gap: 3rem; align-items: center;
     }
-
     .about img { width: 100%; }
     .about p { color: #555; }
 
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      font-size: 0.8rem;
-      color: #777;
-    }
+    .contact { text-align: center; }
+    footer { text-align: center; padding: 3rem 1rem; font-size: 0.8rem; color: #777; }
 
-    /* LIGHTBOX */
     .lightbox {
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background: rgba(0,0,0,0.9);
-      display: none;
-      align-items: center;
-      justify-content: center;
+      display: none; align-items: center; justify-content: center;
       z-index: 999;
     }
+    .lightbox img { max-width: 90%; max-height: 90%; }
 
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-    }
-
-    @media (max-width: 768px) {
-      nav { padding: 1rem; }
-      nav .menu { display: none; }
-      .hero { margin-top: 60px; }
-    }
+    @media(max-width:768px){ nav{padding:1rem;} nav .menu{display:none;} }
   </style>
 </head>
 <body>
 
-  <nav>
-    <div class="logo">PAVI Studio</div>
-    <div class="menu">
-      <a href="#work">GALLERY</a>
-      <a href="#about">ABOUT</a>
-      <a href="#contact">CONTACT</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div>
-      <h1 id="heroTitle"></h1>
-      <p id="heroSubtitle"></p>
-      <a href="#contact" id="heroButton"></a>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="work">
-    <h2 class="title">Featured Stories</h2>
-    <p class="subtitle">A glimpse into moments captured with love.</p>
-    <div class="gallery" id="gallery"></div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h2 class="title" id="aboutTitle"></h2>
-    <div class="about">
-      <img id="aboutImage" />
-      <p id="aboutText"></p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2 class="title">Contact</h2>
-    <p style="text-align:center">Email: hello@studio.com</p>
-  </section>
-
-  <footer>
-   © 2026 Pavithra Stories
-  </footer>
-
-  <div class="lightbox" id="lightbox">
-    <img id="lightboxImg" />
+<nav>
+  <div class="logo">Pavithra Stories</div>
+  <div class="menu">
+    <a href="#work">GALLERY</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
   </div>
+</nav>
 
-  <script>
-    async function loadSite() {
-      // Load site data
-      const siteRes = await fetch('site.json');
-      const site = await siteRes.json();
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1></h1>
+    <p></p>
+    <a href="#contact"></a>
+  </div>
+</section>
 
-      const hero = document.getElementById('hero');
-      hero.style.backgroundImage = `url(${site.hero.image})`;
-      hero.style.backgroundSize = 'cover';
-      hero.style.backgroundPosition = 'center';
+<section id="work">
+  <h2 class="title">Featured Stories</h2>
+  <p class="subtitle">Moments captured with heart & soul.</p>
+  <div class="gallery" id="gallery"></div>
+</section>
 
-      document.getElementById('heroTitle').innerText = site.hero.title;
-      document.getElementById('heroSubtitle').innerText = site.hero.subtitle;
-      document.getElementById('heroButton').innerText = site.hero.button;
+<section id="about">
+  <h2 class="title"></h2>
+  <div class="about">
+    <img id="aboutImg" />
+    <p id="aboutText"></p>
+  </div>
+</section>
 
-      document.getElementById('aboutTitle').innerText = site.about.title;
-      document.getElementById('aboutText').innerText = site.about.text;
-      document.getElementById('aboutImage').src = site.about.image;
+<section id="contact">
+  <h2 class="title">Contact</h2>
+  <div class="contact">
+    <p>Email: hello@pavithrastories.com</p>
+    <p>Instagram: @pavithrastories</p>
+    <p>Based in India · Available Worldwide</p>
+    <br>
+    <a href="https://wa.me/919999999999" target="_blank">BOOK ON WHATSAPP</a>
+  </div>
+</section>
 
-      // Load gallery
-      const galleryRes = await fetch('gallery.json');
-      const images = await galleryRes.json();
-      const gallery = document.getElementById('gallery');
+<footer>© 2026 Pavithra Stories</footer>
 
-      images.forEach(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.onclick = () => {
-          document.getElementById('lightbox').style.display = 'flex';
-          document.getElementById('lightboxImg').src = src;
-        };
-        gallery.appendChild(img);
-      });
+<div class="lightbox" id="lightbox"><img id="lightboxImg"></div>
 
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => e.isIntersecting && e.target.classList.add('show'));
-      }, { threshold: 0.2 });
+<script>
+async function loadSite(){
+  const site = await fetch('site.json').then(r=>r.json());
+  const gallery = await fetch('gallery.json').then(r=>r.json());
 
-      document.querySelectorAll('.gallery img').forEach(img => observer.observe(img));
-    }
+  document.querySelector('.logo').innerText = site.brand.name;
+  document.querySelector('.hero').style.backgroundImage = `url(${site.hero.image})`;
+  document.querySelector('.hero h1').innerText = site.hero.title;
+  document.querySelector('.hero p').innerText = site.hero.subtitle;
+  document.querySelector('.hero a').innerText = site.hero.button;
 
-    loadSite();
+  document.querySelector('#about .title').innerText = site.about.title;
+  document.getElementById('aboutImg').src = site.about.image;
+  document.getElementById('aboutText').innerText = site.about.text;
 
-    document.getElementById('lightbox').onclick = () => {
-      document.getElementById('lightbox').style.display = 'none';
-    };
-  </script>
+  const gal = document.getElementById('gallery');
+  gallery.forEach(src=>{
+    const img=document.createElement('img'); img.src=src;
+    gal.appendChild(img);
+    observer.observe(img);
+    img.onclick=()=>{lb.style.display='flex'; lbImg.src=src;}
+  });
+}
+
+const observer=new IntersectionObserver(e=>e.forEach(i=>i.isIntersecting&&i.target.classList.add('show')),{threshold:0.2});
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lightboxImg');
+lb.onclick=()=>lb.style.display='none';
+
+loadSite();
+</script>
 </body>
 </html>
