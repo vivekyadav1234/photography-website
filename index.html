@@ -280,9 +280,17 @@ async function loadVideos(){
     videoGrid.appendChild(vid);
   });
 }
+// LOAD ABOUT SECTION
+async function loadAbout() {
+  const site = await fetch('site.json').then(r => r.json());
+  aboutTitle.innerText = site.about.title;
+  aboutText.innerText = site.about.text;
+  aboutImg.src = site.about.image;
+}
 
 // INIT
-loadHeroSlides();loadGallery();loadStudio();loadWhy();loadVideos();
+loadHeroSlides();loadGallery();loadStudio();loadWhy();loadVideos();loadAbout();
+
 </script>
 </body>
 </html>
