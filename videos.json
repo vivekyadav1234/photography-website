@@ -1,5 +1,8 @@
 [
-  {"src": "https://www.youtube.com/embed/VIDEO_ID_1"},
-  {"src": "https://www.youtube.com/embed/VIDEO_ID_2"},
-  {"src": "https://www.youtube.com/embed/VIDEO_ID_3"}
+  {
+    "src": "https://www.youtube.com/embed/VIDEO_ID_1"
+  },
+  {
+    "src": "https://www.youtube.com/embed/VIDEO_ID_2"
+  }
 ]
